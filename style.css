@@ -1,0 +1,215 @@
+/*#####################################/START - CREATE VARIABLES/##############################################*/
+:root {
+  --background-color: hsl(0, 0%, 100%);
+  --color-bar: hsl(0, 0%, 100%);
+  --color-button: rgb(239, 239, 239);
+  --color-button-text: rgb(107, 107, 107);
+  --color-button-input: black;
+  --color-icon: rgb(107, 107, 107);
+}
+
+.dark-mode:root {
+  --background-color: hsl(230, 17%, 14%);
+  --color-bar: hsl(229, 16%, 21%);
+  --color-button: rgb(107, 107, 107);
+  --color-button-text: white;
+  --color-button-input: white;
+  --color-icon: rgb(255, 255, 255);
+}
+/*###################################/END - CREATE VARIABLES/############################################*/
+
+/*#####################################/START - RESET CSS/##############################################*/
+* {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+/*#####################################/END - RESET CSS/##############################################*/
+
+/*###################################/START - PAGE MODELING/###########################################*/
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  padding-right: 20px;
+  background-color: var(--background-color);
+}
+
+/*#####################################/START - TOOGLE DARK MODE/########################################*/
+input[type="checkbox"] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 40px;
+  height: 20px;
+  background: rgb(190, 190, 190);
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+
+label:after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 100px;
+  transition: 0.3s;
+}
+
+input:checked + label {
+  background: #4285f4;
+}
+
+input:checked + label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+/*########################################/END - TOOGLE DARK MODE/###########################################*/
+
+/*#####################################/START - SOCIAL ICONS/##############################################*/
+.container {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icons {
+  width: 40px;
+  height: 40px;
+  margin: 0 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+.icons a {
+  color: var(--color-icon);
+}
+
+.icons:hover {
+  transform: scale(1.2);
+}
+
+.icons::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    172deg,
+    rgba(105, 100, 185, 1) 0%,
+    rgba(82, 190, 235, 1) 56%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  z-index: -1;
+  border-radius: 50%;
+  transform: translate(100%, 100%);
+  transition: all 0.4s;
+}
+.icons:hover::before {
+  transform: translate(0);
+  animation: animate 0.4s linear;
+}
+/*#####################################/END - SOCIAL ICONS/##############################################*/
+
+/*############################/START - LOGO, INPUT AND BUTTON MODELING/######################################*/
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: var(--background-color);
+}
+
+.icon__content {
+  width: 570px;
+  height: 120px;
+  background-image: url(icon.png);
+}
+
+.search__input {
+  margin-top: 20px;
+  width: 600px;
+  height: 40px;
+  border: 1px solid rgb(190, 190, 190);
+  border-radius: 100px;
+  position: relative;
+  outline: none;
+  padding: 0 25px;
+  background-color: var(--color-bar);
+  color: var(--color-button-input);
+}
+
+.search__voice {
+  width: 17px;
+  height: 23px;
+  position: relative;
+  bottom: -7px;
+  left: -33px;
+}
+
+.comand {
+  margin-top: 30px;
+  width: 450px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.form__button {
+  height: 100%;
+  width: 100%;
+  margin: 0 20px;
+  border-radius: 5px;
+  outline: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  color: var(--color-button-text);
+  background-color: var(--color-button);
+}
+/*############################/END - LOGO, INPUT AND BUTTON MODELING/######################################*/
+
+/*#####################################/END - PAGE MODELING/##############################################*/
+
+/*#####################################/START - ANIMATION/##############################################*/
+
+@keyframes animate {
+  0%,
+  100% {
+    width: 100%;
+    height: 100%;
+  }
+  50% {
+    width: 50%;
+    height: 50%;
+  }
+}
+
+/*#####################################/END - ANIMATION/##############################################*/
